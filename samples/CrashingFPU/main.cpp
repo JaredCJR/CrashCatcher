@@ -15,7 +15,8 @@
 */
 
 
-#include <mbed.h>
+//#include <mbed.h>
+#include "/home/jared/workspace/uVisor/uvisor/core/arch/STM32F4/inc/stm32f429xx.h"
 #include <CrashCatcher.h>
 #include <stdint.h>
 #include "MyImplementationIO/usart"
@@ -23,7 +24,7 @@
 extern "C" void testInitFPURegisters();
 static void enable8ByteStackAlignment();
 static void crashWithFPUDisabled();
-DigitalOut myled(LED1);
+//DigitalOut myled(LED1);
 
 int main()
 {
@@ -31,17 +32,16 @@ int main()
 
     enable8ByteStackAlignment();
 
-    /*
-     * Blink LED with gcc4mbed libraries for a while ,then Crash with FPU disabled but try to initialize the FPU.
-     */
+    int wait = 100000;
     while (1)
     {
-		for(int i = 0;i < 5;i++)
-		{
+		for(int i = 0;i < wait;i++)
+		{/*
 			wait(0.5);
 			myled = 1;
 			wait(0.5);
 			myled = 0;
+         */
 		}
 
         /*Fault with FPU disabled*/

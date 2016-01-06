@@ -412,7 +412,7 @@ void USART3_INIT(void)
     enableUartPeripheralCLOCK(3);
     enableGPIO(3);
     enableUART(3);
-	//dbg_printf("USART3 Connecting Successfully!\n");
+	dbg_printf("USART3 Connecting Successfully!\n");
 }
 
 void USART3_SendChar(int Character)
