@@ -23,10 +23,10 @@
 
         extern "C" void HardFault_Handler(void);
     */
-    .global HardFault_Handler
-    .type HardFault_Handler, %function
+    .global CrashCatcher_HardFault_Handler
+    .type CrashCatcher_HardFault_Handler, %function
     .thumb_func
-HardFault_Handler:
+CrashCatcher_HardFault_Handler:
     /* Push the following onto the stack (see CrashCatcherExceptionRegisters structure). The g_crashCatcherStack buffer
        is reserved for use as the stack while CrashCatcher is running.
         exceptionPSR
@@ -56,7 +56,7 @@ HardFault_Handler:
 
     // Let assembler know that we have hit the end of the HardFault_Handler function.
     .pool
-    .size   HardFault_Handler, .-HardFault_Handler
+    .size   CrashCatcher_HardFault_Handler, .-CrashCatcher_HardFault_Handler
 
 
 
